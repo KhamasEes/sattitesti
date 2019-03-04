@@ -6,6 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hullo Wörld</title>
 </head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    socket.on('testerEvent', 
+        (data) => {
+            document.write(data.description)
+        }    
+    );
+</script>
+
+<script>
+    socket.emit('clientEvent', 'Sent an event from the client');
+</script>
+
 <body>
     <h1>Hullo!</h1>
 </body>
